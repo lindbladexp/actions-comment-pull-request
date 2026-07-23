@@ -8,7 +8,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: (BEFORE) Setup test cases
         run: echo '**Content of file referenced with absolute path**' > /tmp/foobar.txt
