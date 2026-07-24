@@ -119,7 +119,7 @@ async function run() {
       return comment;
     }
 
-    const commentTagPattern = commentTag ? `<!-- thollander/actions-comment-pull-request "${commentTag}" -->` : null;
+    const commentTagPattern = commentTag ? `<!-- lindbladexp/actions-comment-pull-request "${commentTag}" -->` : null;
     const body = commentTagPattern ? `${content}\n${commentTagPattern}` : content;
 
     if (commentTagPattern) {

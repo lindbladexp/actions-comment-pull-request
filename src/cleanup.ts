@@ -28,7 +28,7 @@ async function run() {
       return;
     }
 
-    const commentTagPattern = `<!-- thollander/actions-comment-pull-request "${commentTag}" -->`;
+    const commentTagPattern = `<!-- lindbladexp/actions-comment-pull-request "${commentTag}" -->`;
 
     if (commentTagPattern) {
       for await (const { data: comments } of octokit.paginate.iterator(octokit.rest.issues.listComments, {
