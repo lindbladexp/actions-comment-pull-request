@@ -18,7 +18,7 @@ jobs:
     name: An example job to comment a PR
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v3
@@ -188,9 +188,15 @@ See [jobs.<job_id>.permissions](https://docs.github.com/en/actions/using-workflo
 
 ### Build
 
-The build steps transpiles the `src/main.ts` to `lib/index.js` which is used in a NodeJS environment.
-It is handled by `vercel/ncc` compiler.
+The build step bundles `src/main.ts` into `lib/index.js` (and `src/cleanup.ts` into `lib/cleanup/index.js`), which run on the action's Node.js 24 runtime.
+Bundling is handled by [`esbuild`](https://esbuild.github.io/), producing ES module output.
 
 ```sh
 $ npm run build
+```
+
+Type-checking is available separately:
+
+```sh
+$ npm run typecheck
 ```
